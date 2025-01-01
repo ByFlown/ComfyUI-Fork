@@ -13,8 +13,37 @@ Pillow
 scipy
 tqdm
 psutil
+requests
 
 #non essential dependencies:
 kornia>=0.7.1
 spandrel
 soundfile
+
+
+# copied from comfyui_controlnet_aux
+torch
+importlib_metadata
+huggingface_hub
+scipy
+opencv-python>=4.7.0.72
+filelock
+numpy
+Pillow
+einops
+torchvision
+pyyaml
+scikit-image
+python-dateutil
+mediapipe
+svglib
+fvcore
+yapf
+omegaconf
+ftfy
+addict
+yacs
+trimesh[easy]
+albumentations
+scikit-learn
+matplotlib
