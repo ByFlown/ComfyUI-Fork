@@ -27,12 +27,17 @@ def download_model(model_url, save_path):
 
 
 def clone_repository(repo_url, destination):
-    try:
-        print(f"Cloning repository from: {repo_url} to {destination}")
-        subprocess.run(["git", "clone", repo_url], cwd=destination, check=False)
-        print("Repository cloned successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"Failed to clone repository: {e}")
+
+    if not os.path.exists(destination):
+
+        try:
+            print(f"Cloning repository from: {repo_url} to {destination}")
+            subprocess.run(["git", "clone", repo_url, destination], check=False)
+            print("Repository cloned successfully.")
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to clone repository: {e}")
+    else:
+        print(f"Repo already exist at {destination}")
 
 
 # Render specific configuration
@@ -43,12 +48,12 @@ if __name__ == "__main__":
 
     clone_repository(
         "https://github.com/Fannovel16/comfyui_controlnet_aux/",
-        "./custom_nodes/",  # Specify the destination directory
+        "./custom_nodes/controlnet",  # Specify the destination directory
     )
 
     clone_repository(
         "https://github.com/rgthree/rgthree-comfy.git",
-        "./custom_nodes/",
+        "./custom_nodes/rgthree",
     )
 
     download_model(
