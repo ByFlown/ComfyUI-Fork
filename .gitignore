@@ -3,6 +3,7 @@ __pycache__/
 /output/
 /models/
 /temp/
+/custom_nodes/
 extra_model_paths.yaml
 /.vs
 .vscode/

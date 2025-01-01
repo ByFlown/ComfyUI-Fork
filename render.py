@@ -32,7 +32,9 @@ def clone_repository(repo_url, destination):
 
         try:
             print(f"Cloning repository from: {repo_url} to {destination}")
-            subprocess.run(["git", "clone", repo_url, destination], check=False)
+            subprocess.run(
+                ["git", "clone", "--depth", "1", repo_url, destination], check=False
+            )
             print("Repository cloned successfully.")
         except subprocess.CalledProcessError as e:
             print(f"Failed to clone repository: {e}")
