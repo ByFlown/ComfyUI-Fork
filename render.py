@@ -29,7 +29,7 @@ def download_model(model_url, save_path):
 def clone_repository(repo_url, destination):
     try:
         print(f"Cloning repository from: {repo_url} to {destination}")
-        subprocess.run(["git", "clone", repo_url], cwd=destination, check=True)
+        subprocess.run(["git", "clone", repo_url], cwd=destination, check=False)
         print("Repository cloned successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Failed to clone repository: {e}")
