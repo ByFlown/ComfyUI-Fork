@@ -123,6 +123,10 @@ def textToAnimFromPreprocessedImgs():
             "./models/checkpoints/animePastelDream_softBakedVae.safetensors",
         ),
         (
+            "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth?download=true",
+            "./models/controlnet/sd15/control_v11p_sd15_canny.pth",
+        ),
+        (
             "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SD15-8steps-lora.safetensors?download=true",
             "./models/loras/HyperSD/SD15/Hyper-SD15-8steps-lora.safetensors",
         ),
