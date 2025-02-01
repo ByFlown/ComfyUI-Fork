@@ -123,12 +123,12 @@ def textToAnimFromPreprocessedImgs():
             "./models/checkpoints/animePastelDream_softBakedVae.safetensors",
         ),
         (
-            "https://civitai.com/api/download/models/229782?type=Model&format=SafeTensor",
-            "./models/loras/SD15/hyperdetailer_v095.safetensors",
+            "https://huggingface.co/ByteDance/Hyper-SD/resolve/main/Hyper-SD15-8steps-lora.safetensors?download=true",
+            "./models/loras/HyperSD/SD15/Hyper-SD15-8steps-lora.safetensors",
         ),
         (
-            "https://civitai.com/api/download/models/223773?type=Model&format=SafeTensor",
-            "./models/loras/SD15/hyperrefiner_v090.safetensors",
+            "https://civitai.com/api/download/models/28609?type=Model&format=SafeTensor&size=full&fp=fp16",
+            "./models/loras/SD15/animetarotV51.safetensors",
         ),
     ]
 
