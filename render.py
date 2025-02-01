@@ -55,12 +55,8 @@ def clone_repository(repo_url, destination):
         print(f"Repo already exists at {destination}")
 
 
-# Render specific configuration
-PORT = int(os.environ.get("PORT", 8188))
-HOST = "0.0.0.0"
+def textToAnim():
 
-if __name__ == "__main__":
-    # Clone repositories sequentially to avoid memory spikes
     repositories = [
         (
             "https://github.com/Fannovel16/comfyui_controlnet_aux/",
@@ -105,3 +101,57 @@ if __name__ == "__main__":
         print("Stopping server")
     finally:
         loop.close()
+
+
+def textToAnimFromDepthImgs():
+
+    repositories = [
+        (
+            "https://github.com/Fannovel16/comfyui_controlnet_aux/",
+            "./custom_nodes/controlnet",
+        ),
+        ("https://github.com/rgthree/rgthree-comfy.git", "./custom_nodes/rgthree"),
+    ]
+
+    for repo_url, destination in repositories:
+        clone_repository(repo_url, destination)
+
+    # Download models sequentially
+    models = [
+        (
+            "https://civitai.com/api/download/models/28100?type=Model&format=SafeTensor&size=full&fp=fp16",
+            "./models/checkpoints/animePastelDream_softBakedVae.safetensors",
+        ),
+        (
+            "https://civitai.com/api/download/models/229782?type=Model&format=SafeTensor",
+            "./models/loras/SD15/hyperdetailer_v095.safetensors",
+        ),
+        (
+            "https://civitai.com/api/download/models/223773?type=Model&format=SafeTensor",
+            "./models/loras/SD15/hyperrefiner_v090.safetensors",
+        ),
+    ]
+
+    for model_url, save_path in models:
+        download_model(model_url, save_path)
+
+    # Get event loop and start the server
+    loop, server, start_server = start_comfyui()
+
+    try:
+        loop.run_until_complete(server.start(HOST, PORT))
+        loop.run_forever()
+    except KeyboardInterrupt:
+        print("Stopping server")
+    finally:
+        loop.close()
+
+
+# Render specific configuration
+PORT = int(os.environ.get("PORT", 8188))
+HOST = "0.0.0.0"
+
+if __name__ == "__main__":
+    # Clone repositories sequentially to avoid memory spikes
+
+    textToAnimFromDepthImgs()
