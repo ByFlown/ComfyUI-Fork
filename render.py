@@ -103,7 +103,7 @@ def textToAnim():
         loop.close()
 
 
-def textToAnimFromDepthImgs():
+def textToAnimFromPreprocessedImgs():
 
     repositories = [
         (
@@ -154,4 +154,4 @@ HOST = "0.0.0.0"
 if __name__ == "__main__":
     # Clone repositories sequentially to avoid memory spikes
 
-    textToAnimFromDepthImgs()
+    textToAnimFromPreprocessedImgs()
