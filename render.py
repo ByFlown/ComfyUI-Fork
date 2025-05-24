@@ -60,7 +60,7 @@ def fluxTextToImageWithText():
     models = [
         (
             "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8-e4m3fn.safetensors",
-            "./models/checkpoints/flux1-schnell-fp8-e4m3fn.safetensors",
+            "./models/unet/flux1-schnell-fp8-e4m3fn.safetensors",
         ),
         (
             "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors",
