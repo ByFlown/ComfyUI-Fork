@@ -63,7 +63,7 @@ def fluxTextToImageWithText():
             "./models/unet/flux1-schnell-fp8-e4m3fn.safetensors",
         ),
         (
-            "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors",
+            "https://huggingface.co/black-forest-labs/FLUX.1-schnell/blob/main/ae.safetensors",
             "./models/vae/ae.safetensors",
         ),
         (
