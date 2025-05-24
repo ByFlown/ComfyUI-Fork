@@ -55,6 +55,42 @@ def clone_repository(repo_url, destination):
         print(f"Repo already exists at {destination}")
 
 
+def fluxTextToImageWithText():
+
+    models = [
+        (
+            "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8-e4m3fn.safetensors",
+            "./models/checkpoints/flux1-schnell-fp8-e4m3fn.safetensors",
+        ),
+        (
+            "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors",
+            "./models/vae/ae.safetensors",
+        ),
+        (
+            "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors",
+            "./models/clip/t5xxl_fp8_e4m3fn.safetensors",
+        ),
+        (
+            "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+            "./models/clip/clip_l.safetensors",
+        ),
+    ]
+
+    for model_url, save_path in models:
+        download_model(model_url, save_path)
+
+    # Get event loop and start the server
+    loop, server, start_server = start_comfyui()
+
+    try:
+        loop.run_until_complete(server.start(HOST, PORT))
+        loop.run_forever()
+    except KeyboardInterrupt:
+        print("Stopping server")
+    finally:
+        loop.close()
+
+
 def textToAnim():
 
     repositories = [
@@ -158,4 +194,4 @@ HOST = "0.0.0.0"
 if __name__ == "__main__":
     # Clone repositories sequentially to avoid memory spikes
 
-    textToAnimFromPreprocessedImgs()
+    fluxTextToImageWithText()
