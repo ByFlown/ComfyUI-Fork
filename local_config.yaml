@@ -1,0 +1,20 @@
+# Local ComfyUI Configuration
+server:
+  host: "127.0.0.1"
+  port: 8188
+  auto_launch: false
+
+cuda:
+  device: "auto"  # auto, cpu, cuda:0, cuda:1, etc.
+  memory_fraction: 0.8  # Fraction of VRAM to use
+
+paths:
+  models: "./models"
+  output: "./output"
+  input: "./input"
+  temp: "./temp"
+  custom_nodes: "./custom_nodes"
+
+logging:
+  level: "INFO"
+  file: "comfyui_local.log"

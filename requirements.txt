@@ -1,49 +1,40 @@
-torch
-torchsde
-torchvision
-torchaudio
-einops
-transformers>=4.28.1
-tokenizers>=0.13.3
-sentencepiece
-safetensors>=0.4.2
-aiohttp
-pyyaml
-Pillow
-scipy
-tqdm
-psutil
-requests
+# Core dependencies
+aiohttp>=3.8.0
+aiofiles>=22.0.0
+pillow>=9.0.0
+numpy>=1.20.0
+scipy>=1.9.0
+requests>=2.28.0
+pyyaml>=6.0
+tqdm>=4.64.0
+psutil>=5.9.0
 
-#non essential dependencies:
-kornia>=0.7.1
-spandrel
-soundfile
+# ML/AI dependencies  
+safetensors>=0.3.0
+transformers>=4.25.0
+accelerate>=0.16.0
+diffusers>=0.21.0
+omegaconf>=2.3.0
+einops>=0.6.0
+timm>=0.6.0
 
+# Image processing
+opencv-python>=4.7.0
+imageio>=2.25.0
+scikit-image>=0.19.0
 
-# copied from comfyui_controlnet_aux
-torch
-importlib_metadata
-huggingface_hub
-scipy
-opencv-python>=4.7.0.72
-filelock
-numpy
-Pillow
-einops
-torchvision
-pyyaml
-scikit-image
-python-dateutil
-mediapipe
-svglib
-fvcore
-yapf
-omegaconf
-ftfy
-addict
-yacs
-trimesh[easy]
-albumentations
-scikit-learn
-matplotlib
+# Optional but recommended
+xformers>=0.0.16  # For memory efficiency
+spandrel>=0.1.0   # For upscaling models
+controlnet-aux>=0.4.0  # For ControlNet preprocessing
+
+# Development dependencies (optional)
+black>=22.0.0
+flake8>=5.0.0
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# For specific model support
+segment-anything>=1.0
+torchsde>=0.2.5
+kornia>=0.6.8
